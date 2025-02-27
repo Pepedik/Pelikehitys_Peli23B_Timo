@@ -16,5 +16,11 @@ namespace Seikkailijanreppu
         public int Damage;
         public float BowBase;
         public float BowString;
+
+        public override string ToString()
+        {
+            return "Bow with this damage " + this.Damage;
+        }
     }
+
 }

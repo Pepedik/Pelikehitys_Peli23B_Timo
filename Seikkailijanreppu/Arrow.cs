@@ -16,5 +16,9 @@ namespace Seikkailijanreppu
         }
         public string FeatherType;
         public string TipType;
+        public override string ToString()
+        {
+            return "Arrow with this feather " + this.FeatherType + " and this tip type " + this.TipType;
+        }
     }
 }

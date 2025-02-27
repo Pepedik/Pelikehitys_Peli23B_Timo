@@ -13,5 +13,9 @@ namespace Seikkailijanreppu
             this.Fullness = Fullness;
         }
         public float Fullness;
+        public override string ToString()
+        {
+            return "Food with fullness of " + this.Fullness;
+        }
     }
 }

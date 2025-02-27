@@ -14,5 +14,10 @@ namespace Seikkailijanreppu
             this.durability = durability;
         }
         public float durability;
+
+        public override string ToString()
+        {
+            return "Rope durability of " + this.durability;
+        }
     }
 }

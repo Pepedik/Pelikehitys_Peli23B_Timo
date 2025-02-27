@@ -13,5 +13,10 @@ namespace Seikkailijanreppu
             this.hydration = hydration;
         }
         public float hydration;
+
+        public override string ToString()
+        {
+            return "Waters hydration of this hydration " + this.hydration;
+        }
     }
 }

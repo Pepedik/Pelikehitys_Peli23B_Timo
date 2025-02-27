@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.Design;
 using System.Drawing;
 using System.Numerics;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Seikkailijanreppu
 {
@@ -12,7 +13,7 @@ namespace Seikkailijanreppu
             Reppu Inv = new Reppu(30, new Vector2(20), 10);
             while (true)
             {
-                Console.WriteLine("The backpack contains at the moment " +  " Weight limit 30 Current: " + Inv.Weight + " Space limit 20 current: " + Inv.Space + " items limit 10 current: " + Inv.Item );
+                Console.WriteLine("The backpack contains at the moment " + " Weight limit 30 Current: " + Inv.Weight + " Space limit 20 current: " + Inv.Space + " items limit 10 current: " + Inv.Item);
                 Console.WriteLine("What do you want to add to inventory?");
                 string[] Names = { "Arrow", "Sword", "Rope", "Bow", "water", "Food" };
                 for (int i = 0; i < Names.Length; i++)
@@ -28,11 +29,12 @@ namespace Seikkailijanreppu
                     case "2":Added = new Sword(30); break;
                     case "3":Added = new Rope(10); break;
                     case "4":Added = new Bow(15); break;                    
-                    case "5":Added = new water(15); break;                    
-                    case "6":Added = new Food(15); break;
+                    case "5":Added = new water(25); break;                    
+                    case "6":Added = new Food(35); break;
                 }
                 
-                Console.WriteLine("You chose: " + Answer);
+                Console.WriteLine("You chose: " + Added);
+                Console.WriteLine(Inv);
                 Inv.Add(Added);
             }
         }
@@ -68,6 +70,15 @@ namespace Seikkailijanreppu
             this.SpaceLimit = SpaceLimit;
             this.ItemLimit = ItemLimit;
             Inventory = new List<Items>();
+        }
+        public override string ToString()
+        {
+            string empty = "Backpack contains this: ";
+            foreach (Items Current in Inventory)
+            {
+               empty += Current.GetType().Name + ",";
+            }
+            return empty;
         }
     }
 }

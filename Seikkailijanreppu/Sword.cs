@@ -14,5 +14,9 @@ namespace Seikkailijanreppu
             this.Damage = Damage;
         }
         public int Damage;
+        public override string ToString()
+        {
+            return "Sword with this damage " + this.Damage;
+        }
     }
 }
